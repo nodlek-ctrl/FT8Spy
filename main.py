@@ -9,6 +9,7 @@ import re
 client_id = "1207218142099677234"  # Enter your Application ID here.
 RPC = Presence(client_id=client_id)
 RPC.connect()
+print("Connected to Discord RPC")
 
 # IP_ADDRESS = '224.1.1.1'
 # PORT = 5007
@@ -23,8 +24,13 @@ while True:
     if pkt is not None:
         packet = pywsjtx.WSJTXPacketClassFactory.from_udp_packet(addr_port, pkt)
         if type(packet) == pywsjtx.StatusPacket:
+            print("Got status packet")
             frequency = packet.dial_frequency
-            print(frequency)
-
-    # Add a small delay to avoid unnecessary CPU usage
-    time.sleep(0.1)
+            # convert hertz to megahertz
+            frequency = frequency/1000000
+            mode = packet.mode
+            dx=packet.dx_call
+            RPC.update(details="Using WSJT-X", state=f"{mode} on {frequency}", large_image="logo")
+            print(f"Updated presence with {mode} on {frequency} MHz")
+    # supposedly can only update rich presence every 15 seconds
+    time.sleep(1)
