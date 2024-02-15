@@ -7,7 +7,7 @@
 #
 import socket
 import struct
-import pywsjtx
+import wsjtx_decoder as pywsjtx
 import logging
 import ipaddress
 
