@@ -46,7 +46,7 @@ Adjust the `IP_ADDRESS` and `PORT` variables in the script to match your WSJT-X 
 
 - Discord Rich Presence is typically limited in how frequently it can be updated. The script is set to update every 5 seconds, but you may adjust this based on Discord's rate-limiting policies.
 - Please be aware that Discord application IDs are public information and not considered sensitive like tokens. However, ensure not to expose your Discord token or any other sensitive information in your code.
-- This integration uses the `pypresence` library for Discord RPC communication and `udp_handler` and `decoder` for handling WSJT-X UDP packets.
+- This integration uses the `pypresence` library for Discord RPC communication and `serverr` and `wsjtx_Sdecoder` for handling WSJT-X UDP packets.
 
 ## Acknowledgments
 
