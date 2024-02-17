@@ -1,55 +1,50 @@
-# FT8 Spy
+---
+# FT8Spy
 
-[![pypresence](https://img.shields.io/badge/using-pypresence-00bb88.svg?style=for-the-badge&logo=discord&logoWidth=20)](https://github.com/qwertyquerty/pypresence)
+FT8Spy is a system tray application written in Go that monitors a WSJT-X server for status messages and updates Discord Rich Presence accordingly. It uses the `fyne.io/systray` package for the system tray interface and `github.com/hugolgst/rich-go/client` for Discord Rich Presence integration.
 
-## Overview
+## Features
 
-This Python script integrates Discord Rich Presence with the popular amateur radio software WSJT-X. By using the pypresence library, it communicates with the Discord API to display real-time information about your WSJT-X activity as your Discord status.
-
-## Prerequisites
-
-- Python 3.x installed on your system.
-- Discord account.
-- WSJT-X software installed and running.
+- Monitors WSJT-X server for status messages.
+- Updates Discord Rich Presence with information about WSJT-X status.
+- Provides a system tray interface for easy access and quick exit.
 
 ## Installation
 
-1. Clone the repository:
+### Pre-built Executables
 
-    ```bash
-    git clone https://github.com/your-username/your-repo.git
-    ```
+You can find pre-built executables for Windows in the [Releases](https://github.com/nodlek-ctrl/FT8Spy/releases) section.
 
-2. Install required Python packages:
+## Configuration
 
-    ```bash
-    pip install pypresence
-    ```
+- The Discord Rich Presence is updated with information about the WSJT-X status, including the mode and frequency when WSJT-X is open.
+- Switch between frequencies or mode to force update the presence.
+- The system tray icon provides a "Quit" option for easy termination of the application.
 
-## Usage
+## Dependencies
 
-1. Run the script:
+- [fyne.io/systray](https://pkg.go.dev/fyne.io/systray): System tray package for Go.
+- [github.com/hugolgst/rich-go/client](https://pkg.go.dev/github.com/hugolgst/rich-go/): Discord Rich Presence library for Go.
+- [github.com/k0swe/wsjtx-go/v4](https://pkg.go.dev/github.com/k0swe/wsjtx-go/v4): WSJT-X client library for Go.
 
-    ```bash
-    python your_script.py
-    ```
+## Contributing
 
-2. Make sure WSJT-X is running.
+Feel free to contribute by opening issues or creating pull requests. Your feedback and enhancements are welcome!
 
-3. The script will connect to Discord RPC and start updating your Discord status based on the WSJT-X activity.
+## To Do
+- [ ] Create Github Action to build for all systems (Current Priority)
+- [ ] Document build process
+- [ ] Make the progrm open and close with WSJT-X
+- [ ] Support other digimode applications
 
-## Customization
+## License
 
-Adjust the `IP_ADDRESS` and `PORT` variables in the script to match your WSJT-X UDP server configuration.
-
-## Notes
-
-- Discord Rich Presence is typically limited in how frequently it can be updated. The script is set to update every 5 seconds, but you may adjust this based on Discord's rate-limiting policies.
-- Please be aware that Discord application IDs are public information and not considered sensitive like tokens. However, ensure not to expose your Discord token or any other sensitive information in your code.
-- This integration uses the `pypresence` library for Discord RPC communication and `server` and `wsjtx_decoder` for handling WSJT-X UDP packets.
+This project is licensed under the GNU GENERAL PUBLIC LICENSE Version 3 - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
-- [pypresence](https://github.com/qwertyquerty/pypresence): A Python library for Discord Rich Presence.
-- [WSJT-X](https://wsjt.sourceforge.io/wsjtx.html): The popular software for amateur radio communication using weak signal propagation modes.
-- [pywsjtx](https://github.com/bmo/py-wsjtx) by Brian Moran: Source of the decoder and server modules.
+- The [fyne.io](https://fyne.io/) team for the system tray package.
+- [hugolgst](https://github.com/hugolgst) for the Discord Rich Presence library.
+- [k0swe](https://github.com/k0swe) for the WSJT-X client library.
+
+---
