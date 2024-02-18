@@ -23,7 +23,6 @@ import (
 	"log"
 
 	"fyne.io/systray"
-	"fyne.io/systray/example/icon"
 	"github.com/hugolgst/rich-go/client"
 	"github.com/k0swe/wsjtx-go/v4"
 )
@@ -81,7 +80,7 @@ func main() {
 }
 
 func onReady() {
-	systray.SetTemplateIcon(icon.Data, icon.Data)
+	systray.SetTemplateIcon(Data, Data)
 	systray.SetTitle("FT8Spy")
 	mQuit := systray.AddMenuItem("Quit", "Quit FT8Spy")
 	mQuit.Enable()
